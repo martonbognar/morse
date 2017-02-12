@@ -1,48 +1,10 @@
+#include <ctype.h>
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
 
-typedef struct {
-  char ascii;
-  char morse[5];
-} Letter;
-
-Letter letters[] = {
-  {'A', ".-"},
-  {'B', "-..."},
-  {'C', "-.-."},
-  {'D', "-.."},
-  {'E', "."},
-  {'F', "..-."},
-  {'G', "--."},
-  {'H', "...."},
-  {'I', ".."},
-  {'J', ".---"},
-  {'K', "-.-"},
-  {'L', ".-.."},
-  {'M', "--"},
-  {'N', "-."},
-  {'O', "---"},
-  {'P', ".--."},
-  {'Q', "--.-"},
-  {'R', ".-."},
-  {'S', "..."},
-  {'T', "-"},
-  {'U', "..-"},
-  {'V', "...-"},
-  {'W', ".--"},
-  {'X', "-..-"},
-  {'Y', "-.--"},
-  {'Z', "--.."},
-};
-
-typedef enum {
-  DOT,
-  DASH,
-  SMALL_SPACE,
-  LETTER_SPACE,
-  WORD_SPACE,
-} Sign;
+#include "structs.h"
+#include "display.h"
 
 Sign characterToSign(char c) {
   if (c == '.') return DOT;
@@ -72,11 +34,11 @@ int letterToSigns(char letter, Sign * signs) {
 
 void displaySign(Sign sign) {
   switch(sign) {
-    case DOT: printf("."); break;
-    case DASH: printf("-"); break;
-    case SMALL_SPACE: printf(" "); break;
-    case LETTER_SPACE: printf("   "); break;
-    case WORD_SPACE: printf("       "); break;
+    case DOT: displayDot(); break;
+    case DASH: displayDash(); break;
+    case SMALL_SPACE: displaySmallSpace(); break;
+    case LETTER_SPACE: displayLetterSpace(); break;
+    case WORD_SPACE: displayWordSpace(); break;
   }
 }
 
