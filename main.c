@@ -85,7 +85,7 @@ int main(void) {
   scanf("%255[^\n]", text);
   int length = strlen(text);
   for (int i = 0; i < length; ++i) {
-    char c = text[i];
+    char c = toupper(text[i]);
     if (c == ' ') {
       displaySign(WORD_SPACE);
     } else {
