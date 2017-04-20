@@ -42,9 +42,7 @@ void displaySign(Sign sign) {
   }
 }
 
-int main(void) {
-  char text[256];
-  scanf("%255[^\n]", text);
+void codeString(const char * text) {
   int length = strlen(text);
   for (int i = 0; i < length; ++i) {
     char c = toupper(text[i]);
@@ -64,6 +62,12 @@ int main(void) {
       }
     }
   }
+}
+
+int main(void) {
+  char text[256];
+  scanf("%255[^\n]", text);
+  codeString(text);
   printf("\n");
   return 0;
 }
